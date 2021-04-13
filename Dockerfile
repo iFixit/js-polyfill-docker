@@ -9,7 +9,9 @@ RUN \
 	git clone https://github.com/Financial-Times/polyfill-service . && \
 	git checkout ${POLYFILL_TAG} && \
 	rm -rf .git && \
-	npm ci && \
+	npm install -g npm@7.9.0 && \
+	npm install --production=false && \
+	npm run build && \
 	sed -i.bak -e 's,^node,exec node,' start_server.sh && \
 	mv start_server.sh /bin/ && \
 	chmod a+x /bin/start_server.sh && \
