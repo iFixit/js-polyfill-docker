@@ -1,9 +1,9 @@
-FROM node:12-alpine
+FROM node:16-alpine
 
 RUN apk add --no-cache --update bash
-RUN apk add --no-cache --update --virtual build git python make gcc g++
+RUN apk add --no-cache --update --virtual build git python3 make gcc g++
 WORKDIR /polyfill
-ARG POLYFILL_TAG='v4.38.0'
+ARG POLYFILL_TAG='v4.49.4'
 ARG NODE_ENV='production'
 RUN \
 	git clone https://github.com/Financial-Times/polyfill-service . && \
